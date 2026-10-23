@@ -1,0 +1,33 @@
+{
+  "name": "tertius",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pre-submission review for hackathon projects: two judges, one evidence-quoted fix list.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "vercel dev",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p api/tsconfig.json --noEmit",
+    "test": "vitest run",
+    "measure": "node --env-file=.env.local --import tsx scripts/measure-gemini.ts",
+    "smoke": "tsx scripts/smoke-repo.ts && tsx scripts/smoke-ui.ts && tsx scripts/smoke-claims.ts && tsx scripts/smoke-fallback.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.5.4",
+    "vite": "^6.4.4",
+    "vitest": "^3.2.7"
+  }
+}

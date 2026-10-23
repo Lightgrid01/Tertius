@@ -1,0 +1,271 @@
+{
+ "_label": "SAMPLE DATA — UI development only. Never used in a real review.",
+ "description": "Sample ledger tool",
+ "readme": "Ledgerlight is a sample project. Built for developers who want to ship faster. Export your ledger to PDF.",
+ "repo": {
+  "judge": "repo",
+  "score": 66,
+  "filesRead": [
+   "package.json",
+   "README.md",
+   "src/main.tsx",
+   "src/App.tsx",
+   "src/lib/ledger.ts",
+   "src/lib/export.ts"
+  ],
+  "evidenceLines": [
+   "README gives install and run steps but never mentions the required environment variables.",
+   "src/lib/export.ts: exportPdf() throws “not implemented”.",
+   "14 commits, all within a single day."
+  ],
+  "parts": [
+   {
+    "key": "setup",
+    "label": "Setup works from the README",
+    "max": 25,
+    "points": 15,
+    "advice": "Document the environment variables.",
+    "why": "The README tells a reader to run the app, but a fresh clone fails without keys that are never listed.",
+    "evidence": [
+     {
+      "kind": "quote",
+      "source": "README.md",
+      "quote": "npm install && npm run dev"
+     }
+    ]
+   },
+   {
+    "key": "structure",
+    "label": "Code structure and readability",
+    "max": 25,
+    "points": 20,
+    "advice": "Split App.tsx into screens.",
+    "why": "One 400-line component holds routing, data and layout, which makes the flow hard to follow.",
+    "evidence": [
+     {
+      "kind": "quote",
+      "source": "src/App.tsx",
+      "quote": "export default function App() { // everything lives here"
+     }
+    ]
+   },
+   {
+    "key": "functionality",
+    "label": "Real functionality, no stubs",
+    "max": 25,
+    "points": 14,
+    "advice": "Build the export or cut it.",
+    "why": "A feature the page advertises is a stub, which reads worse than a missing feature.",
+    "evidence": [
+     {
+      "kind": "quote",
+      "source": "src/lib/export.ts",
+      "quote": "throw new Error('not implemented')"
+     }
+    ]
+   },
+   {
+    "key": "hygiene",
+    "label": "Hygiene: errors, secrets, tests",
+    "max": 15,
+    "points": 11,
+    "advice": "Add a test for the ledger maths.",
+    "why": "No tests were found, and the only error handling is a console.log.",
+    "evidence": [
+     {
+      "kind": "quote",
+      "source": "src/lib/ledger.ts",
+      "quote": "catch (e) { console.log(e) }"
+     }
+    ]
+   },
+   {
+    "key": "history",
+    "label": "Sustained commit history",
+    "max": 10,
+    "points": 6,
+    "advice": "Commit as you build, not at the end.",
+    "why": "All commits land within one day, so a judge can’t see how the project grew.",
+    "evidence": [
+     {
+      "kind": "metric",
+      "name": "Commits",
+      "value": "14 over 1 day"
+     }
+    ]
+   }
+  ]
+ },
+ "ui": {
+  "judge": "ui",
+  "score": 62,
+  "observedSummary": "A hero image fills the first screen with a headline and a Start button below the fold. No empty or error states were visible.",
+  "screenshots": {
+   "desktop": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201280%20800%22%20width%3D%221280%22%20height%3D%22800%22%3E%3Crect%20width%3D%221280%22%20height%3D%22800%22%20fill%3D%22%2316283d%22/%3E%3Crect%20x%3D%2276.8%22%20y%3D%2232.0%22%20width%3D%22256.0%22%20height%3D%2224.0%22%20rx%3D%224%22%20fill%3D%22%232b4562%22/%3E%3Crect%20x%3D%2276.8%22%20y%3D%22160.0%22%20width%3D%221126.4%22%20height%3D%22256.0%22%20rx%3D%2210%22%20fill%3D%22%23223a55%22/%3E%3Crect%20x%3D%2276.8%22%20y%3D%22463.99999999999994%22%20width%3D%22640.0%22%20height%3D%2228.000000000000004%22%20rx%3D%224%22%20fill%3D%22%233a587a%22/%3E%3Crect%20x%3D%2276.8%22%20y%3D%22512.0%22%20width%3D%22896.0%22%20height%3D%2220.0%22%20rx%3D%224%22%20fill%3D%22%232b4562%22/%3E%3Crect%20x%3D%2276.8%22%20y%3D%22576.0%22%20width%3D%22332.8%22%20height%3D%2256.00000000000001%22%20rx%3D%2228.000000000000004%22%20fill%3D%22%233a587a%22/%3E%3Ctext%20x%3D%22640.0%22%20y%3D%22720.0%22%20fill%3D%22%238aa4bd%22%20font-family%3D%22monospace%22%20font-size%3D%2235.84%22%20text-anchor%3D%22middle%22%3ESAMPLE%20SCREENSHOT%20%E2%80%94%20not%20a%20real%20page%3C/text%3E%3C/svg%3E",
+   "mobile": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20390%20780%22%20width%3D%22390%22%20height%3D%22780%22%3E%3Crect%20width%3D%22390%22%20height%3D%22780%22%20fill%3D%22%2316283d%22/%3E%3Crect%20x%3D%2223.4%22%20y%3D%2231.2%22%20width%3D%2278.0%22%20height%3D%2223.4%22%20rx%3D%224%22%20fill%3D%22%232b4562%22/%3E%3Crect%20x%3D%2223.4%22%20y%3D%22156.0%22%20width%3D%22343.2%22%20height%3D%22249.6%22%20rx%3D%2210%22%20fill%3D%22%23223a55%22/%3E%3Crect%20x%3D%2223.4%22%20y%3D%22452.4%22%20width%3D%22195.0%22%20height%3D%2227.300000000000004%22%20rx%3D%224%22%20fill%3D%22%233a587a%22/%3E%3Crect%20x%3D%2223.4%22%20y%3D%22499.2%22%20width%3D%22273.0%22%20height%3D%2219.5%22%20rx%3D%224%22%20fill%3D%22%232b4562%22/%3E%3Crect%20x%3D%2223.4%22%20y%3D%22561.6%22%20width%3D%22101.4%22%20height%3D%2254.60000000000001%22%20rx%3D%2227.300000000000004%22%20fill%3D%22%233a587a%22/%3E%3Ctext%20x%3D%22195.0%22%20y%3D%22702.0%22%20fill%3D%22%238aa4bd%22%20font-family%3D%22monospace%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%3ESAMPLE%20SCREENSHOT%3C/text%3E%3C/svg%3E"
+  },
+  "evidenceLines": [
+   "The first screen is dominated by an unlabelled hero image.",
+   "The main action sits below the fold on desktop.",
+   "Empty and error states couldn’t be checked from a landing screenshot."
+  ],
+  "parts": [
+   {
+    "key": "distinct",
+    "label": "Visual distinctiveness and polish",
+    "max": 30,
+    "points": 18,
+    "advice": "Pick one visual idea and commit to it.",
+    "why": "Type, colour and spacing are competent but match a common template.",
+    "evidence": [
+     {
+      "kind": "region",
+      "screenshot": "desktop",
+      "box": [
+       0.06,
+       0.2,
+       0.88,
+       0.32
+      ],
+      "note": "Hero block is a stock gradient with no distinguishing detail"
+     }
+    ]
+   },
+   {
+    "key": "first",
+    "label": "Core value clear on the first screen",
+    "max": 25,
+    "points": 12,
+    "advice": "Put the action above the fold.",
+    "why": "The page opens on decoration. The action a reviewer should take sits below the fold.",
+    "evidence": [
+     {
+      "kind": "region",
+      "screenshot": "desktop",
+      "box": [
+       0.06,
+       0.72,
+       0.26,
+       0.07
+      ],
+      "note": "Start button is below the visible area"
+     },
+     {
+      "kind": "metric",
+      "name": "Largest contentful paint",
+      "value": "3.4 s (mobile)"
+     }
+    ]
+   },
+   {
+    "key": "flow",
+    "label": "Usable flow",
+    "max": 20,
+    "points": 16,
+    "evidence": []
+   },
+   {
+    "key": "states",
+    "label": "Loading, empty and error states",
+    "max": 15,
+    "points": null,
+    "evidence": []
+   },
+   {
+    "key": "responsive",
+    "label": "Responsive and readable contrast",
+    "max": 10,
+    "points": 7,
+    "advice": "Raise contrast on the muted captions.",
+    "why": "Caption text drops below comfortable contrast on the mobile layout.",
+    "evidence": [
+     {
+      "kind": "region",
+      "screenshot": "mobile",
+      "box": [
+       0.06,
+       0.64,
+       0.7,
+       0.025
+      ],
+      "note": "Light grey caption on a blue-grey background"
+     },
+     {
+      "kind": "metric",
+      "name": "Accessibility score",
+      "value": "82 / 100"
+     }
+    ]
+   }
+  ]
+ },
+ "claims": [
+  {
+   "id": "c1",
+   "text": "Built for developers who want to ship faster.",
+   "source": "devpost",
+   "status": "unsupported",
+   "evidence": [
+    {
+     "kind": "quote",
+     "source": "README.md",
+     "quote": "npm install && npm run dev"
+    }
+   ],
+   "pointsLost": 2,
+   "note": "Checked the README and landing page for who the tool is for or what gets faster. Neither says."
+  },
+  {
+   "id": "c2",
+   "text": "Export your ledger to PDF.",
+   "source": "readme",
+   "status": "contradicted",
+   "evidence": [
+    {
+     "kind": "quote",
+     "source": "src/lib/export.ts",
+     "quote": "throw new Error('not implemented')"
+    }
+   ],
+   "pointsLost": 6,
+   "note": "The export function exists but always throws."
+  },
+  {
+   "id": "c3",
+   "text": "Works offline once loaded.",
+   "source": "devpost",
+   "status": "supported",
+   "evidence": [
+    {
+     "kind": "quote",
+     "source": "src/main.tsx",
+     "quote": "navigator.serviceWorker.register('/sw.js')"
+    }
+   ],
+   "pointsLost": 0
+  },
+  {
+   "id": "c4",
+   "text": "Sync across devices with your account.",
+   "source": "devpost",
+   "status": "unverifiable",
+   "evidence": [],
+   "pointsLost": 0,
+   "note": "Behind a login, so neither judge could check it."
+  },
+  {
+   "id": "c5",
+   "text": "Responsive layout for phones.",
+   "source": "github",
+   "status": "supported",
+   "evidence": [
+    {
+     "kind": "metric",
+     "name": "Viewport meta + mobile screenshot",
+     "value": "layout adapts at 390 px"
+    }
+   ],
+   "pointsLost": 0
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+:root {
+  --navy-0: #0b1624;
+  --overlay-top: rgba(8, 18, 32, 0.66);
+  --overlay-mid: rgba(8, 18, 32, 0.34);
+  --overlay-bottom: rgba(8, 18, 32, 0.78);
+  --text: #f2f6fa;
+  --text-soft: #d5dee8;
+  --muted: #b7c4d2;
+  --amber: #f2c98a;
+  --amber-ink: #fbe7c4;
+  --amber-wash: rgba(242, 201, 138, 0.2);
+  --danger: #f0a3a3;
+  --ok: #a9d8c2;
+  --glass: rgba(12, 24, 40, 0.62);
+  --glass-light: rgba(14, 28, 46, 0.5);
+  --hairline: rgba(255, 255, 255, 0.14);
+  --hairline-soft: rgba(255, 255, 255, 0.1);
+  --blur: 14px;
+  --radius: 22px;
+  --pad-x: clamp(20px, 5vw, 64px);
+  --sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --ease: cubic-bezier(0.22, 0.7, 0.2, 1);
+}

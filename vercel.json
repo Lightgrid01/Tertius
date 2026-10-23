@@ -1,0 +1,18 @@
+{
+  "framework": "vite",
+  "functions": {
+    "api/check-inputs.ts": {
+      "maxDuration": 30
+    },
+    "api/judge-repo.ts": {
+      "maxDuration": 120
+    },
+    "api/judge-ui.ts": {
+      "maxDuration": 150
+    },
+    "api/claim-check.ts": {
+      "maxDuration": 90
+    }
+  },
+  "devCommand": "vite --port $PORT"
+}
