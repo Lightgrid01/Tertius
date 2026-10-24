@@ -3,14 +3,15 @@ import { computeFacts, pickFiles, scanSecrets } from './secrets-scan';
 
 describe('scanSecrets', () => {
   it('finds a real-looking key and redacts it', () => {
-    const f = scanSecrets([{ path: 'src/a.ts', text: 'const k = "AIzaSyA1234567890abcdefghijklmnopqrstuv";' }], []);
+    const fake = 'AIza' + 'SyA1234567890abcdefghijklmnopqrstuv'; // split so secret scanners don't flag this fake test string
+    const f = scanSecrets([{ path: 'src/a.ts', text: `const k = "${fake}";` }], []);
     expect(f).toHaveLength(1);
     expect(f[0].preview).not.toContain('abcdefgh');
   });
   it('ignores placeholders, env reads and .env.example', () => {
     const files = [
       { path: 'a.ts', text: 'const k = process.env.API_KEY; const t = "token: your_token_here_please"' },
-      { path: '.env.example', text: 'API_KEY="AKIAABCDEFGHIJKLMNOP"' },
+      { path: '.env.example', text: `API_KEY="${'AKIA' + 'ABCDEFGHIJKLMNOP'}"` },
     ];
     expect(scanSecrets(files, [])).toHaveLength(0);
   });
